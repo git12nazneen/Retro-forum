@@ -1,9 +1,10 @@
 const postContainer = document.getElementById('allPosts')
 
+
 const fetchCatagories = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`)
     const data = await res.json();
-    console.log(data.posts)
+    // console.log(data.posts)
     const allposts = data.posts;
     // console.log(allposts)
 }
@@ -16,7 +17,7 @@ const displayPost = (allpost) =>{
                     <div class="hero-content flex-col lg:flex-row">
                         <button class="btn btn-ghost ">
                             <div class="indicator">
-                                <img src="./images//images.jpg" class="max-w-sm rounded-lg " />
+                                <img src="${post.image}" class="w-14 rounded-lg " />
                               <span class="badge badge-xs badge-primary indicator-item"></span>
                             </div>
                           </button>
@@ -33,7 +34,8 @@ const displayPost = (allpost) =>{
                                 <div class="flex flex-row lg:flex-row">    
                                     <h6 class="text-gray-600 pr-4"><i class="fa-regular fa-message"></i> ${post.comment_count}</h6>
                                     <h6 class="text-gray-600 pr-4"><i class="fa-thin fa-eye"></i>${post.view_count}</h6><h6 class="text-gray-600 pr-4"><i class="fa-regular fa-clock"></i> <span>${post.posted_time}</span>min</h6>
-                                    <div class="bg-green-500 pt-1 pb-1 pl-2 pr-2 ml-56 rounded-full"><i class="fa-solid fa-message"></i></div>
+                                    <div onClick="mailClick('${post.title}')" class=" bg-green-500 pt-1 pb-1 pl-2 pr-2 ml-56 rounded-full"><i class="fa-solid fa-message"></i></div>
+                                  
                                 </div>
                                 
                            </div>
@@ -54,7 +56,7 @@ const fetchDataCatagories = async (searchtext='music') => {
     postContainer.textContent = '';
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchtext}`)
     const catagory = await res.json();
-    console.log(catagory);
+    // console.log(catagory);
     displayPost(catagory.posts); // Display the fetched posts
 }
 // handle search button
@@ -86,6 +88,33 @@ const handleShowAll = () =>{
     handleSearch(true); 
     console.log('search handle');
 }
+
+
+// button click and append part
+const mailClick = (title , visible) =>{
+    const newElement = document.createElement('div');
+    newElement.className ='flex flex-wrap space-y-2 bg-white rounded-2xl py-3 px-3 mb-2'
+    newElement.innerHTML=`
+    <div id="child-heading" class="flex-1">${title}</div>
+    <div class=""> <i class="fa-solid fa-eye"></i><span id="visibility" >${visible}</span></div>
+    `
+
+    // Append the new element to a parent element
+    const parentElement = document.getElementById('parent-element');
+    parentElement.appendChild(newElement);
+
+// mark count
+
+const markReadSpan = document.getElementById('markRead');
+const currentRead = markReadSpan.innerText;
+const currentMark = parseInt(currentRead);
+const currentVisible = currentMark + 1;
+markReadSpan.innerText = currentVisible;
+}
+
+
+
+
 fetchDataCatagories()
 
 fetchCatagories()
