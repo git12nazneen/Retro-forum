@@ -1,5 +1,5 @@
 const postContainer = document.getElementById('allPosts')
-
+const latestContainer = document.getElementById('card-container');
 
 
 const fetchCatagories = async () => {
@@ -35,8 +35,9 @@ const displayPost = (allpost) =>{
                                 <p class="py-3 text-gray-600">${post.description} </p>
                                 <div class="flex flex-row lg:flex-row">    
                                     <h6 class="text-gray-600 pr-4"><i class="fa-regular fa-message"></i> ${post.comment_count}</h6>
-                                    <h6 class="text-gray-600 pr-4"><i class="fa-thin fa-eye"></i>${post.view_count}</h6><h6 class="text-gray-600 pr-4"><i class="fa-regular fa-clock"></i> <span>${post.posted_time}</span>min</h6>
-                                    <div onClick="mailClick('${post.title}')" class=" bg-green-500 pt-1 pb-1 pl-2 pr-2 ml-56 rounded-full"><i class="fa-solid fa-message"></i></div>
+                                    <h6 class="text-gray-600 pr-4"><i class="fa-thin fa-eye"></i>${post.view_count}</h6>
+                                    <h6 class="text-gray-600 pr-4"><i class="fa-regular fa-clock"></i> <span>${post.posted_time}</span>min</h6>
+                                    <div onClick="mailClick('${post.title.replace(/'/g, '@')}', '${post?.view_count}')" class=" bg-green-500 pt-1 pb-1 pl-2 pr-2 ml-56 rounded-full"><i class="fa-solid fa-message"></i></div>
                                   
                                 </div>
                                 
@@ -94,6 +95,7 @@ const handleShowAll = () =>{
 
 // button click and append part
 const mailClick = (title , visible) =>{
+    console.log(visible)
     const newElement = document.createElement('div');
     newElement.className ='flex flex-wrap space-y-2 bg-white rounded-2xl py-3 px-3 mb-2'
     newElement.innerHTML=`
@@ -125,15 +127,36 @@ const latestPost = async() =>{
 
 const displayLatestPost =(latest) =>{
     console.log(latest);
-    const latestContainer = document.getElementById('latest-container');
+
     latest.forEach(blogs =>{
         console.log(blogs)
        
         const latestCard = document.createElement('div')
-        latestCard.classList = `card card-compact w-96 bg-base-200 shadow-xl`
+        
         latestCard.innerHTML = `
-        <h1>zzzzzzzz</h1>
-        `
+        <div class=" grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="card card-compact w-96 bg-base-200 shadow-xl ">
+             
+        <figure><img class="p-5" src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+        <div class="card-body">
+          <div class="">
+            <h1><span class="mr-2"><i class="fa-solid fa-calendar-days"></i></span>23, 48</h1>
+          </div>
+          <h2 class="card-title font-bold">Shoes!</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="flex gap-2">
+           <div>
+            <img src="./images/images.jpg" alt="">
+           </div>
+           <div>
+            <h1>Lorem, ipsum dolor.</h1>
+            <h2>lorem</h2>
+          </div>
+          </div>
+        </div>
+      </div>
+  </div>
+        `;
         latestContainer.appendChild(latestCard)
     })
 }
@@ -142,4 +165,4 @@ const displayLatestPost =(latest) =>{
 latestPost()
 fetchDataCatagories()
 
-fetchCatagories()
+fetchCatagories(allpost)
