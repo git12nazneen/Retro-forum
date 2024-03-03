@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Forum</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class=" muslish">
    <!-- navbar   -->
-   <div class="navbar bg-base-100 container mx-auto">
+   <div class="navbar bg-base-100 container mx-auto mt-5">
     <div class="navbar-start">
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -28,21 +29,23 @@
           <li><a>Item 3</a></li>
         </ul>
       </div>
-      <a class="btn btn-ghost text-xl">RetRo</a>
+      <a class="btn btn-ghost text-3xl font-bold">RetRo</a>
     </div>
     <div class="navbar-end">
-        <div class="p-2 mr-2 rounded-full bg-gray-300 border border-gray-950">
+     
+          <div class="tooltip p-1 mr-2 rounded-full bg-gray-300 border border-gray-950" data-tip="home">
             <i class="fa-solid fa-house"></i>
           </div>
-          <div class="p-2 mr-2 rounded-full bg-gray-300 border border-gray-950">
+          <div class="tooltip p-1 mr-2 rounded-full bg-gray-300 border border-gray-950" data-tip="user">
             <i class="fa-solid fa-user"></i>
           </div>
-          <div class="p-2 mr-2 rounded-full bg-gray-300 border border-gray-950">
+          <div class="tooltip p-1 mr-2 rounded-full bg-gray-300 border border-gray-950" data-tip="pen">
             <i class="fa-solid fa-pen"></i>
           </div>
-          <div class="p-2 mr-2 rounded-full bg-gray-300 border border-gray-950">
+          <div class="tooltip p-1 mr-2 rounded-full bg-gray-300 border border-gray-950" data-tip="flag">
             <i class="fa-solid fa-flag"></i>
           </div>
+
       <a class="btn bg-blue-600 rounded-full text-white">Sign in</a>
     </div>
   </div>
@@ -76,8 +79,8 @@
                 <h1 class="text-4xl font-bold"><span class="text-blue-600">ReTro </span>Forum</h1>
                 <p class="py-6">Share your favorite opinion and win and wp forum coffee mug!</p>
                 <div class="join">
-                    <input class="input input-bordered join-item rounded-full" placeholder="Search here anything"/>
-                    <button class="btn join-item rounded-full bg-blue-500 text-white">Search</button>
+                    <input id="search-field" class="input input-bordered join-item rounded-full text-black" placeholder="Search here anything"/>
+                    <button onclick="handleSearch()"  class="btn join-item rounded-full bg-blue-500 text-white">Search</button>
                   </div>
               </div>
           </div>
@@ -86,11 +89,12 @@
    <!-- banner end -->
    <!-- head design -->
    <section class="container mx-auto my-2 lg:my-4 text-center lg:mx-10  py-6">
-    <h3 class="text-xl text-center lg:text-4xl font-semibold">Let’s Discuss</h3>
+    <h3 class="text-xl text-center lg:text-4xl font-bold">Let’s Discuss</h3>
     <p class="mt-5 text-wrap lg:w-3/6 mx-auto"> Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined . </p>
 </section>
 
    <!-- head design end -->
+  
     <!-- all catagory -->
   <section class="container mx-auto mt-10 mb-10">
     <div class="hero ">
@@ -99,7 +103,7 @@
           <div class="bg-gray-200 rounded-3xl py-5 w-96 px-5">
             <div class="flex flex-wrap">
                 <div class="flex-1">title</div>
-                <div class="flex-1">Mark as read <span>1</span></div>
+                <div class="">Mark as read <span>1</span></div>
                
               </div>
               <div class="flex flex-wrap space-y-2 bg-white rounded-2xl py-3 px-3">
@@ -108,30 +112,8 @@
                
               </div>
           </div>
-          <div class="">
-           
-                <div class="hero p-2 rounded-lg border bg-base-200 ">
-                    <div class="hero-content flex-col lg:flex-row">
-                      <img src="./images//images.jpg" class="max-w-sm rounded-lg" />
-                    <div>
-                        <div>
-                            <div class="flex flex-col lg:flex-row">
-                                <p class="lg:pr-5 font-bold">#Music</p>
-                                <div>
-                                <h6 class="text-gray-600">Author: xxxxx</h6>
-                            </div>
-                               </div>
-                                <h1 class="py-1 text-2xl font-bold">Box Office News!</h1>
-                                <p class="py-3 text-gray-600">We are proud to present a product that aligns with Olympic values of sustainability. </p>
-                                <div class="flex flex-row lg:flex-row">    
-                                    <h6 class="text-gray-600 pr-4"><i class="fa-solid fa-star" style="color: #ffae3d;"></i> 5.0</h6>
-                                    <h6 class="text-gray-600 pr-4"><i class="fa-thin fa-eye"></i> 20</h6><h6 class="text-gray-600 pr-4"><i class="fa-thin fa-heart"></i> 200</h6>
-                                </div>
-                                
-                           </div>
-                      </div>
-                    </div>
-                  </div>
+          <div id="allPosts" class="">
+               
               
           </div>
         </div>
