@@ -43,6 +43,10 @@ const displayPost = (allpost) =>{
         `
         postContainer.appendChild(div)
     })
+    setTimeout(() => {
+        // Hide loading spinner after data is fetched
+        loadingSpinner(false);
+    }, 2000);
 }
 
 // catagory
@@ -55,11 +59,27 @@ const fetchDataCatagories = async (searchtext='music') => {
 }
 // handle search button
 const handleSearch = () =>{
+    loadingSpinner(true)
     console.log('click');
     const searchField = document.getElementById('search-field');
     const searchtext = searchField.value;
     console.log(searchtext);
     fetchDataCatagories(searchtext);
+}
+const loadingSpinner = (isLoading) =>{
+    const spinnerload = document.getElementById('spinner-loading');
+   
+    if(isLoading){
+        spinnerload.classList.remove('hidden')
+        setTimeout(() => {
+            spinnerload.classList.add('hidden');
+        }, 2000);
+    }
+    else{
+        spinnerload.classList.add('hidden')
+    }
+
+
 }
 // handle search btn
 const handleShowAll = () =>{
