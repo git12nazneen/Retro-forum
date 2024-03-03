@@ -1,10 +1,12 @@
 const postContainer = document.getElementById('allPosts')
 const latestContainer = document.getElementById('card-container');
+
 const fetchCatagories = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`)
     const data = await res.json();
     const allposts = data.posts;
     // console.log(allposts)
+    displayPost(allposts)
 }
 const displayPost = (allpost) =>{
     allpost.forEach(post =>{
@@ -27,7 +29,7 @@ const displayPost = (allpost) =>{
                             </div>
                                </div>
                                 <h1 class="py-1 text-2xl font-bold">${post.title}</h1>
-                                <p class="py-3 text-gray-600">${post.description} </p>
+                                <p class="py-3 text-gray-600 text-sm lg:w-96">${post.description} </p>
                                 <div class="flex flex-row lg:flex-row">    
                                     <h6 class="text-gray-600 pr-4"><i class="fa-regular fa-message"></i> ${post.comment_count}</h6>
                                     <h6 class="text-gray-600 pr-4"><i class="fa-thin fa-eye"></i>${post.view_count}</h6>
@@ -47,7 +49,7 @@ const displayPost = (allpost) =>{
     }, 2000);
 }
 // catagory
-const fetchDataCatagories = async (searchtext='coding') => {
+const fetchDataCatagories = async (searchtext) => {
     postContainer.textContent = '';
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchtext}`)
     const catagory = await res.json();
@@ -86,7 +88,7 @@ const mailClick = (title , visible) =>{
     const newElement = document.createElement('div');
     newElement.className ='flex flex-wrap space-y-2 bg-white rounded-2xl py-3 px-3 mb-2'
     newElement.innerHTML=`
-    <div id="child-heading" class="flex-1">${title}</div>
+    <div id="child-heading" class="flex-1 lg:mr-3 font-bold">${title}</div>
     <div class=""> <i class="fa-solid fa-eye"></i><span id="visibility" >${visible}</span></div>
     `
     // Append the new element to a parent element
@@ -112,7 +114,7 @@ const displayLatestPost =(latest) =>{
         const latestCard = document.createElement('div')
         latestCard.innerHTML = `
         <div class=" grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <div class="card card-compact w-96 bg-base-200 shadow-xl ">     
+      <div class="card card-compact w-auto lg:w-96 bg-base-200 shadow-xl ">     
         <figure><img class="p-8" src="${blogs.cover_image}" alt="Shoes" /></figure>
         <div class="card-body">
           <div class="">
