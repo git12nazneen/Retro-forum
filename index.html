@@ -17,34 +17,42 @@
         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </div>
-        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-          <li><a>Item 1</a></li>
-          <li>
-            <a>Parent</a>
-            <ul class="p-2">
-              <li><a>Submenu 1</a></li>
-              <li><a>Submenu 2</a></li>
-            </ul>
-          </li>
-          <li><a>Item 3</a></li>
-        </ul>
-      </div>
-      <a class="btn btn-ghost text-3xl font-bold">RetRo</a>
-    </div>
-    <div class="navbar-end">
-          <div class="tooltip p-1 mr-2 rounded-full bg-gray-300 border border-gray-950" data-tip="home">
+        <ul tabindex="0" class="menu menu-sm dropdown-content my-5 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+          <div class="tooltip py-1 px-2 mr-2 rounded-full bg-slate-50 border border-gray-400" data-tip="home">
             <i class="fa-solid fa-house"></i>
           </div>
-          <div class="tooltip p-1 mr-2 rounded-full bg-gray-300 border border-gray-950" data-tip="user">
+          <div class="tooltip  py-1 px-2 mr-2 rounded-full bg-slate-50 border border-gray-400" data-tip="user">
             <i class="fa-solid fa-user"></i>
           </div>
-          <div class="tooltip p-1 mr-2 rounded-full bg-gray-300 border border-gray-950" data-tip="pen">
+          <div class="tooltip  py-1 px-2 mr-2 rounded-full bg-slate-50 border border-gray-400" data-tip="pen">
             <i class="fa-solid fa-pen"></i>
           </div>
-          <div class="tooltip p-1 mr-2 rounded-full bg-gray-300 border border-gray-950" data-tip="flag">
+          <div class="tooltip  py-1 px-2 mr-2 rounded-full bg-slate-50 border border-gray-400" data-tip="flag">
             <i class="fa-solid fa-flag"></i>
           </div>
-      <a class="btn bg-blue-600 rounded-full text-white">Sign in</a>
+          <li>
+            <ul class="p-2">
+              <a class="btn bg-blue-600 rounded-full text-white px-9">Sign in</a>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <a class=" text-4xl font-extrabold">RetRo</a>
+    </div>
+    <div class="navbar-end hidden lg:visible">
+          <div class="tooltip py-1 px-2 mr-2 rounded-full bg-slate-50 border border-gray-400" data-tip="home">
+            <i class="fa-solid fa-house"></i>
+          </div>
+          <div class="tooltip  py-1 px-2 mr-2 rounded-full bg-slate-50 border border-gray-400" data-tip="user">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="tooltip  py-1 px-2 mr-2 rounded-full bg-slate-50 border border-gray-400" data-tip="pen">
+            <i class="fa-solid fa-pen"></i>
+          </div>
+          <div class="tooltip  py-1 px-2 mr-2 rounded-full bg-slate-50 border border-gray-400" data-tip="flag">
+            <i class="fa-solid fa-flag"></i>
+          </div>
+      <a class="btn bg-blue-600 rounded-full text-white px-9">Sign in</a>
     </div>
   </div>
    <!-- navbar  end  -->
@@ -54,13 +62,12 @@
         <div class="hero-overlay bg-opacity-10 rounded-3xl"></div>
         <div class="hero-content flex-col lg:flex-row-reverse gap-14">
             <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 flex-1">
-                <div class="hero-content flex-col lg:flex-row m-8">
+                <div class="hero-content flex-row lg:flex-row lg:m-8">
                     <div class="flex-1 space-y-3">
                         <h1 class="">Registered Users</h1>
                         <h1 class="">Forum</h1>
                         <h1 class="">Topics</h1>
                         <h1 class="">Replies</h1>
-                      
                       </div>
                     <div class="space-y-3">
                         <h1>01</h1>
@@ -96,10 +103,10 @@
   <section class="container mx-auto mt-10 mb-10">
     <div class="hero ">
         <div class="hero-content flex-col lg:flex-row-reverse">
-          <div class="bg-gray-200 rounded-3xl py-5 w-96 px-5">
+          <div class="bg-gray-200 rounded-3xl py-5 w-72 lg:w-96 px-5">
             <div  class="flex flex-wrap">
-                <div class="flex-1">title</div>
-                <div class=""><span class="text-green-600"><i class="fa-solid fa-check"></i></span>  Mark as read <span id="markRead">0</span></div>
+                <div class="flex-1 text-2xl font-bold">Title</div>
+                <div class="text-xl"><span class="text-green-600"><i class="fa-solid fa-check"></i></span>  Mark as read (<span id="markRead">0</span>)</div>
               </div>
               <div id="parent-element" class="">
               </div>
@@ -118,8 +125,8 @@
               <img src="./images/joinforum.png" />
               <div class="lg:pl-6">
                 <h1 class="text-3xl font-bold">Join Our Forum</h1>
-                <p class="py-6 w-3/6">Share your favorite opinion and win and wp forum coffee mug! Yes, you can run unit tests and view the results directly within the app. </p>
-                <button class="btn btn-primary bg-blue-500 rounded-full">Register Now</button>
+                <p class="py-6  lg:w-3/6">Share your favorite opinion and win and wp forum coffee mug! Yes, you can run unit tests and view the results directly within the app. </p>
+                <button class="btn btn-primary bg-blue-500 rounded-full px-8">Register Now</button>
               </div>
             </div>
           </div>
@@ -139,7 +146,7 @@
 </section>
    <!-- footer -->
    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
-    <h1 class="text-3xl font-bold">RetRO</h1>
+    <h1 class="text-4xl font-extrabold">RetRO</h1>
     <p>These types of contests usually invite participants to share their favorite opinions or insights on a particular topic, <br> and the best response wins a prize, in this case, a coffee mug.</p>
     <nav>
       <div class="grid grid-flow-col gap-4">
@@ -155,6 +162,5 @@
   </footer>
    <!-- footer end -->
     <script src="./script.js"></script>
-    <script src="./latest.js"></script>
 </body>
 </html>
