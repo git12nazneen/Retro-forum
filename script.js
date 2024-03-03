@@ -1,6 +1,7 @@
 const postContainer = document.getElementById('allPosts')
 
 
+
 const fetchCatagories = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`)
     const data = await res.json();
@@ -18,8 +19,9 @@ const displayPost = (allpost) =>{
                         <button class="btn btn-ghost ">
                             <div class="indicator">
                                 <img src="${post.image}" class="w-14 rounded-lg " />
-                              <span class="badge badge-xs badge-primary indicator-item"></span>
-                            </div>
+                                <span class="badge indicator-item" style="background-color: ${post.isActive ? 'green' : 'red'};"></span>
+          
+                                </div>
                           </button>
                     <div>
                         <div>
@@ -56,7 +58,7 @@ const fetchDataCatagories = async (searchtext='music') => {
     postContainer.textContent = '';
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchtext}`)
     const catagory = await res.json();
-    // console.log(catagory);
+    console.log(catagory);
     displayPost(catagory.posts); // Display the fetched posts
 }
 // handle search button
@@ -113,8 +115,31 @@ markReadSpan.innerText = currentVisible;
 }
 
 
+const latestPost = async() =>{
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
+    const data = await res.json();
+    // console.log(data)
+    const latest = data;
+    displayLatestPost(latest)
+}
+
+const displayLatestPost =(latest) =>{
+    console.log(latest);
+    const latestContainer = document.getElementById('latest-container');
+    latest.forEach(blogs =>{
+        console.log(blogs)
+       
+        const latestCard = document.createElement('div')
+        latestCard.classList = `card card-compact w-96 bg-base-200 shadow-xl`
+        latestCard.innerHTML = `
+        <h1>zzzzzzzz</h1>
+        `
+        latestContainer.appendChild(latestCard)
+    })
+}
 
 
+latestPost()
 fetchDataCatagories()
 
 fetchCatagories()

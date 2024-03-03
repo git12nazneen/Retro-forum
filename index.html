@@ -106,7 +106,7 @@
           <div class="bg-gray-200 rounded-3xl py-5 w-96 px-5">
             <div  class="flex flex-wrap">
                 <div class="flex-1">title</div>
-                <div class="">Mark as read <span id="markRead">0</span></div>
+                <div class=""><span class="text-green-600"><i class="fa-solid fa-check"></i></span>  Mark as read <span id="markRead">0</span></div>
                
               </div>
               <div id="parent-element" class="">
@@ -147,17 +147,29 @@
 
    <!-- head design  end-->
    <!-- card design -->
-  <div class="container mx-auto my-8">
-    <div class="card card-compact w-96 bg-base-100 shadow-xl">
-        <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+   <div class="container mx-auto my-8">
+    <div class="latest-container">
+    <div class="card card-compact w-96 bg-base-200 shadow-xl">
+     
+        <figure><img class="p-5" src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
         <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
+          <div class="">
+            <h1><span class="mr-2"><i class="fa-solid fa-calendar-days"></i></span>23, 48</h1>
+          </div>
+          <h2 class="card-title font-bold">Shoes!</h2>
           <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-start">
-            <button class="btn btn-primary ">Buy Now</button>
+          <div class="flex gap-2">
+           <div>
+            <img src="./images/images.jpg" alt="">
+           </div>
+           <div>
+            <h1>Lorem, ipsum dolor.</h1>
+            <h2>lorem</h2>
+          </div>
           </div>
         </div>
       </div>
+    </div>
   </div>
    <!-- card design end-->
 
@@ -180,5 +192,6 @@
   </footer>
    <!-- footer end -->
     <script src="./script.js"></script>
+    <script src="./latest.js"></script>
 </body>
 </html>
