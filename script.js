@@ -1,4 +1,4 @@
-const postContainer = document.getElementById('allPosts')
+const postContainer = document.getElementById('allPosts');
 const latestContainer = document.getElementById('card-container');
 
 const fetchCatagories = async () => {
